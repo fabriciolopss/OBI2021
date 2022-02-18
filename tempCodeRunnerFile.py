@@ -1,0 +1,2 @@
+
+                    ordenador -= 1

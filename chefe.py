@@ -1,28 +1,27 @@
-totalNum = int(input())
-numeros = []
-soma = 0
-chefeNum = 0
-for x in range(totalNum):
-    ordenador = x
-    loopIson = True
-    chefeNum = int(input())
-    numeros.append(chefeNum)
-    if (x > 1):
-        while (loopIson):
-            if chefeNum == 0:
-                if numeros[ordenador - 1] != 0:
-                    numeros[ordenador - 1] = 0
-                    loopIson = False
-                else:
-                    ordenador -= 1
+#Meu Gabarito para OBI 2021
+#Estou refazendo a prova para treinar para OBI de 2022
+#Adotei alguns conceitos que aprendi durante esse ano
+
+class numeros():
+    def __init__(self):
+        self.quantNumeros = 0
+        self.numeros = []
+        self.somaTotal = 0
+
+    def inputDados(self, quant):
+        self.quantNumeros = quant
+        for x in range(self.quantNumeros):
+            numLista = int(input())
+            if numLista != 0:
+                self.numeros.append(numLista)
             else:
-                loopIson = False
-    elif (x == 1):
-        if chefeNum == 0:
-            numeros[x - 1] = 0
-    if x == totalNum:
-        for y in range(len(numeros)):
-            soma += int(numeros[y])
+                del self.numeros[len(self.numeros) - 1]
+        self.somarNumeros()
+        return self.somaTotal
 
+    def somarNumeros(self):
+        for y in self.numeros:
+            self.somaTotal += y
 
-print(soma)
+prova = numeros()
+print (prova.inputDados(int(input())))
